@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Cumpleaños de Amigos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <header>
+            <h1 data-i18n="appTitle">Cumpleaños de Amigos</h1>
+            <div class="controls">
+                <button id="theme-toggle" class="btn-icon" data-i18n-title="toggleTheme">🌙</button>
+                <button id="lang-toggle" class="btn-secondary" data-i18n="langToggle">English</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="add-friend">
+                <h2 data-i18n="addFriend">Agregar Amigo</h2>
+                <form id="friend-form">
+                    <div class="form-group">
+                        <label for="friend-name" data-i18n="name">Nombre:</label>
+                        <input type="text" id="friend-name" required maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-day" data-i18n="day">Día:</label>
+                        <select id="birth-day" required>
+                            <option value="" data-i18n="selectDay">--Día--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-month" data-i18n="month">Mes:</label>
+                        <select id="birth-month" required>
+                            <option value="" data-i18n="selectMonth">--Mes--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-year" data-i18n="year">Año:</label>
+                        <input type="number" id="birth-year" required min="1900" max="2024">
+                    </div>
+                    <button type="submit" class="btn-primary" data-i18n="add">Agregar</button>
+                    <button type="button" id="cancel-edit" class="btn-secondary hidden" data-i18n="cancel">Cancelar</button>
+                </form>
+            </section>
+
+            <section class="search-section">
+                <div class="search-controls">
+                    <input type="text" id="search-input" placeholder="Buscar amigos..." data-i18n-placeholder="searchPlaceholder">
+                    <select id="sort-select">
+                        <option value="name" data-i18n="sortName">Ordenar por Nombre</option>
+                        <option value="age" data-i18n="sortAge">Ordenar por Edad</option>
+                        <option value="next-birthday" data-i18n="sortNextBirthday">Próximo Cumpleaños</option>
+                    </select>
+                </div>
+                <div class="data-controls">
+                    <button id="export-btn" class="btn-secondary" data-i18n="export">Exportar Datos</button>
+                    <button id="import-btn" class="btn-secondary" data-i18n="import">Importar Datos</button>
+                    <input type="file" id="import-file" accept=".json" style="display: none;">
+                </div>
+            </section>
+
+            <section class="friends-list">
+                <h2 data-i18n="friendsList">Lista de Amigos</h2>
+                <div id="friends-container">
+                    <p id="no-friends" class="no-data" data-i18n="noFriends">No hay amigos agregados aún.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
